@@ -1,12 +1,14 @@
 :root {
-    --bg-color: #0d0d0b;
+    --bg-color: #0a0a08;
     --accent-yellow: #f1d35a;
-    --text-dim: #a0956b;
+    --text-dim: #7a7352;
     --crt-green: #20ff20;
-    --border-glow: rgba(241, 211, 90, 0.3);
+    --border-glow: rgba(241, 211, 90, 0.4);
 }
 
-* { box-sizing: border-box; }
+* { 
+    box-sizing: border-box; 
+}
 
 body {
     margin: 0;
@@ -20,14 +22,14 @@ body {
     overflow: hidden;
 }
 
-/* Capa de efecto CRT / VHS */
+/* Capa de ruido: IMPORTANTE el pointer-events para poder usar el chat */
 .overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background: repeating-linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.15) 0px,
-        rgba(0, 0, 0, 0.15) 1px,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 1px,
         transparent 1px,
         transparent 2px
     );
@@ -46,59 +48,58 @@ body {
 
 .terminal-header {
     text-align: center;
-    margin-bottom: 20px;
-    opacity: 0; /* Controlado por JS */
+    margin-bottom: 15px;
+    opacity: 0; /* Lo maneja Anime.js */
 }
 
 .glitch {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: bold;
-    text-shadow: 2px 0 red, -2px 0 blue;
+    text-shadow: 2px 0 #ff0000, -2px 0 #0000ff;
+    letter-spacing: 4px;
+    margin: 0;
 }
 
 .subtitle {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--text-dim);
-    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 5px;
 }
-
-/* Busca y reemplaza estas clases en tu styles.css */
 
 .chat-window {
     flex-grow: 1;
     position: relative;
-    border: 2px solid var(--accent-yellow); /* Borde más grueso */
-    box-shadow: 0 0 20px var(--border-glow);
-    background: #ffffff; /* Fondo blanco para que el chat sea legible */
-    opacity: 0; 
+    border: 2px solid var(--accent-yellow);
+    box-shadow: 0 0 30px var(--border-glow);
+    background: #ffffff; /* Fondo blanco para asegurar que el chat se vea */
     margin: 10px 0;
-    overflow: hidden;
+    opacity: 0; /* Lo maneja Anime.js */
+}
+
+.frame-border {
+    width: 100%;
+    height: 100%;
 }
 
 iframe {
     width: 100%;
     height: 100%;
     border: none;
-    /* Eliminamos o suavizamos los filtros para ver dónde escribimos */
-    filter: none; 
-}
-
-/* Añadimos un contenedor interno para asegurar el scroll */
-.frame-border {
-    width: 100%;
-    height: 100%;
-    padding: 0; /* El chat debe ocupar todo el espacio */
 }
 
 .terminal-footer {
     display: flex;
     justify-content: space-between;
-    padding: 15px 5px;
+    padding: 10px 5px;
     font-size: 0.75rem;
-    border-top: 1px solid rgba(241, 211, 90, 0.1);
+    border-top: 1px solid rgba(241, 211, 90, 0.2);
 }
 
-.highlight { color: #fff; text-shadow: 0 0 5px var(--accent-yellow); }
+.highlight { 
+    color: #fff; 
+    text-shadow: 0 0 5px var(--accent-yellow); 
+}
 
 .pulse-icon {
     display: inline-block;
@@ -107,10 +108,5 @@ iframe {
     background-color: var(--crt-green);
     border-radius: 50%;
     margin-right: 5px;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink { 
-    0%, 100% { opacity: 1; } 
-    50% { opacity: 0.3; } 
+    box-shadow: 0 0 5px var(--crt-green);
 }
