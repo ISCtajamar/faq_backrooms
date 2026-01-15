@@ -3,14 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ Backrooms - Bot</title>
-    <style>
-        body { margin: 0; padding: 0; background-color: #000; display: flex; justify-content: center; }
-        iframe { border: none; }
-    </style>
+    <title>M.E.G. Terminal | Database Access</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
-    <iframe src='https://webchat.botframework.com/embed/qna-web-bot-backrooms?s=8XGJlrUK4CXoEESJx2wbSOr7XqQPTGpxddmcMkOZw3c9WUaxfsegJQQJ99CAACHYHv6AArohAAABAZBS8XJP.9MPlSyzpnTeQN2mrpPvTKJKlllgkMenzYzGm7sfQ198bH64oQBVPJQQJ99CAACHYHv6AArohAAABAZBS2swN'  
-            style='min-width: 400px; width: 100%; height: 100vh;'></iframe>
+
+    <div class="overlay"></div>
+
+    <main class="terminal-wrapper">
+        <header class="terminal-header">
+            <h1 class="glitch" data-text="BACKROOMS_ARCHIVE">BACKROOMS_ARCHIVE</h1>
+            <p class="subtitle">Property of Major Explorer Group - Level 0 Access</p>
+        </header>
+
+        <section class="chat-window">
+            <div class="frame-border">
+                <iframe 
+                    src='https://webchat.botframework.com/embed/qna-web-bot-backrooms?s=8XGJlrUK4CXoEESJx2wbSOr7XqQPTGpxddmcMkOZw3c9WUaxfsegJQQJ99CAACHYHv6AArohAAABAZBS8XJP.9MPlSyzpnTeQN2mrpPvTKJKlllgkMenzYzGm7sfQ198bH64oQBVPJQQJ99CAACHYHv6AArohAAABAZBS2swN'
+                    allow="microphone; camera">
+                </iframe>
+            </div>
+        </section>
+
+        <footer class="terminal-footer">
+            <div class="status-group">
+                <span class="pulse-icon"></span>
+                <span>SYSTEM: <span class="highlight">ONLINE</span></span>
+            </div>
+            <div class="status-group">
+                <span>SESSION_TIME: <span id="timer" class="highlight">00:00:00</span></span>
+            </div>
+            <div class="status-group">
+                <span>LATENCY: <span id="latency" class="highlight">12ms</span></span>
+            </div>
+        </footer>
+    </main>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
